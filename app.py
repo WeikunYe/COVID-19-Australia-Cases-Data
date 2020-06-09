@@ -1,3 +1,5 @@
+import os
+
 from flask import Flask, request
 from flask_sqlalchemy import SQLAlchemy
 from flask_restful import Resource, Api, reqparse
@@ -8,7 +10,7 @@ import csv
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+pymysql://udemyapi:Udemyapi2020!@localhost/udemyapi"
+app.config['SQLALCHEMY_DATABASE_URI'] = os.enviro.get('DATABASE_URL', "mysql+pymysql://udemyapi:Udemyapi2020!@localhost/udemyapi")
 db = SQLAlchemy(app)
 # app.secret_key = 'jose'
 api = Api(app)
