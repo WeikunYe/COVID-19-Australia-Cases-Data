@@ -10,7 +10,7 @@ import csv
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SQLALCHEMY_DATABASE_URI'] = os.enviro.get('DATABASE_URL', "mysql+pymysql://udemyapi:Udemyapi2020!@localhost/udemyapi")
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', "mysql+pymysql://udemyapi:Udemyapi2020!@localhost/udemyapi")
 db = SQLAlchemy(app)
 # app.secret_key = 'jose'
 api = Api(app)
