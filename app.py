@@ -114,7 +114,7 @@ class AuthorResource(Resource):
 class LoadDataResource(Resource):
     
     def get(self):
-        db.creat_all()
+        db.create_all()
         with open('data.csv') as csvfile:
             readCSV = csv.reader(csvfile, delimiter=',')
             for row in readCSV:
