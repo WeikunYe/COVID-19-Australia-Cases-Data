@@ -111,17 +111,23 @@ class AuthorResource(Resource):
             'Github': 'https://github.com/WeikunYe/'
         }
 
+class LoadDataResource(Resource):
+    
+    def get(self):
+        db.creat_all()
+        with open('data.csv') as csvfile:
+            readCSV = csv.reader(csvfile, delimiter=',')
+            for row in readCSV:
+                print(row)
+                if row[0] and row[1] and row[2] and row[3] and row[4] and row[5]:
+                    covidRecord = Record(row[0], row[1], row[2], row[3], row[4], row[5])
+                    covidRecord.save_to_db()
+        return{'message': 'success'}, 201
 
-# with open('data.csv') as csvfile:
-#     readCSV = csv.reader(csvfile, delimiter=',')
-#     for row in readCSV:
-#         print(row)
-#         if row[0] and row[1] and row[2] and row[3] and row[4] and row[5]:
-#             covidRecord = Record(row[0], row[1], row[2], row[3], row[4], row[5])
-#             covidRecord.save_to_db()
 api.add_resource(RecordsResource, '/records/<int:page>')
 api.add_resource(SearchResource, '/search')
 api.add_resource(AuthorResource, '/author')
+api.add_resource(LoadDataResource, '/initial')
 
 if __name__ == '__main__':
     app.run(port=5000, debug=True)
