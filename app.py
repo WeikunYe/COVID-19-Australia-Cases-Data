@@ -120,7 +120,7 @@ class LoadDataResource(Resource):
             for row in readCSV:
                 print(row)
                 if row[0] and row[1] and row[2] and row[3] and row[4] and row[5]:
-                    covidRecord = Record(row[0], row[1], row[2], row[3], row[4], row[5])
+                    covidRecord = RecordModel(row[0], row[1], row[2], row[3], row[4], row[5])
                     covidRecord.save_to_db()
         return{'message': 'success'}, 201
 
