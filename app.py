@@ -123,4 +123,5 @@ api.add_resource(RecordsResource, '/records/<int:page>')
 api.add_resource(SearchResource, '/search')
 api.add_resource(AuthorResource, '/author')
 
-app.run(port=5000, debug=True, use_reloader=True)
+if __name__ == '__main__':
+    app.run(port=5000, debug=True)
