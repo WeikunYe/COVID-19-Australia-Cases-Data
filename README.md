@@ -14,4 +14,7 @@ return all cases in 2000
 /author
 return author information
 
-Demo url: https://covid-19-australia-api.herokuapp.com
+Demo url: 
+https://covid-19-australia-api.herokuapp.com/author
+https://covid-19-australia-api.herokuapp.com/records/1
+https://covid-19-australia-api.herokuapp.com/search?postcode=2000
