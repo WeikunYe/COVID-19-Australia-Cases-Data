@@ -13,3 +13,5 @@ return all cases in 2000
   
 /author
 return author information
+
+Demo url: https://covid-19-australia-api.herokuapp.com
